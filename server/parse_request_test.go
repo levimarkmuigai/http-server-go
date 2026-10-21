@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestParser(t *testing.T) {
+func TestParse(t *testing.T) {
 	input := "POST /users HTTP/1.1\r\n" +
 		"Content-Type: application/x-www-form-urlencoded\r\n" +
 		"Content-Length: 14\r\n" +

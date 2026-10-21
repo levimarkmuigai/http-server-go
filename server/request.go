@@ -77,7 +77,7 @@ func Parse(r *bufio.Reader) (*Request, error) {
 	}, nil
 }
 
-func Form(body []byte) (map[string]string, error) {
+func ParseForm(body []byte) (map[string]string, error) {
 	f := string(body)
 
 	params := make(map[string]string)

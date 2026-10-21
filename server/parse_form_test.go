@@ -5,10 +5,10 @@ import (
 	"testing"
 )
 
-func TestFormParser(t *testing.T) {
+func TestParseForm(t *testing.T) {
 	body := "firstname=John&username=johndoe&password=123"
 
-	got, err := Form([]byte(body))
+	got, err := ParseForm([]byte(body))
 
 	if err != nil {
 		t.Fatalf("Form(%q) error = %v", body, err)
