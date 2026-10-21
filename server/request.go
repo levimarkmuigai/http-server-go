@@ -76,3 +76,24 @@ func Parse(r *bufio.Reader) (*Request, error) {
 		body:   body,
 	}, nil
 }
+
+func Form(body []byte) (map[string]string, error) {
+	f := string(body)
+
+	params := make(map[string]string)
+
+	f = s.TrimSpace(f)
+
+	for pair := range s.SplitSeq(f, "&") {
+		k, v, ok := s.Cut(pair, "=")
+
+		if !ok {
+			return nil, fmt.Errorf("malformed body %q", f)
+		}
+
+		params[k] = v
+
+	}
+
+	return params, nil
+}
